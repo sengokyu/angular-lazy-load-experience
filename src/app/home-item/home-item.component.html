@@ -1,0 +1,8 @@
+<h3>home item {{ number }}</h3>
+<div (lazyLoad)="onLazyLoad()">
+  @if (title$ | async; as title) {
+    <p>{{ title }}</p>
+  } @else {
+    <p>Loading...</p>
+  }
+</div>
