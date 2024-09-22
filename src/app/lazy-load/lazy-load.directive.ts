@@ -28,16 +28,11 @@ export class LazyLoadDirective implements OnDestroy {
   ) {
     afterNextRender(() => {
       if (this.isInViewPort()) {
+        console.debug('The content is in viewport, Emit lazyLoad.');
         this.lazyLoad.emit();
       } else {
         console.debug('Subscribe scroll event.');
-
-        this.subscription = this.scrollEventListenerService.scrolled
-          .pipe(first(() => this.isInViewPort()))
-          .subscribe(() => {
-            console.debug('Emit scroll event.');
-            this.lazyLoad.emit();
-          });
+        this.subscribeScrollEvent();
       }
     });
   }
@@ -53,5 +48,14 @@ export class LazyLoadDirective implements OnDestroy {
   private isInViewPort(): boolean {
     const top = this.element.nativeElement.getBoundingClientRect().top;
     return top >= 0 && top <= document.documentElement.clientHeight;
+  }
+
+  private subscribeScrollEvent(): void {
+    this.subscription = this.scrollEventListenerService.scrolled
+      .pipe(first(() => this.isInViewPort()))
+      .subscribe(() => {
+        console.debug('Emit lazyLoad.');
+        this.lazyLoad.emit();
+      });
   }
 }
