@@ -1,0 +1,24 @@
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3em;
+  padding: 1em;
+
+  background-color: lightcyan;
+}
+
+nav ul {
+  display: flex;
+
+  li {
+    display: block;
+    margin-right: 1em;
+  }
+}
+
+.container {
+  margin-top: 6em;
+}
