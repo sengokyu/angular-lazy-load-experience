@@ -6,6 +6,8 @@ Just like `loading="lazy"` attribute of **img** tag.
 
 An event emitted when a component scroll in the viewport.
 
+![](./assets/screenshot.gif)
+
 ## Usage
 
 ```html
