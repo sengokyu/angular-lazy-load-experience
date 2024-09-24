@@ -11,7 +11,6 @@ import { ScrollEventListenerService } from './scroll-event-listener.service';
 
 @Directive({
   selector: '[lazyLoad]',
-  standalone: true,
 })
 export class LazyLoadDirective implements OnDestroy {
   private subscription?: Subscription;

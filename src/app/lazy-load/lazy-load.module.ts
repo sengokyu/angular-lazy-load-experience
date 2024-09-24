@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ScrollEventListenerService } from './scroll-event-listener.service';
 import { LazyLoadDirective } from './lazy-load.directive';
+import { ScrollEventListenerService } from './scroll-event-listener.service';
 
 @NgModule({
-  imports: [CommonModule, LazyLoadDirective],
+  declarations: [LazyLoadDirective],
   providers: [ScrollEventListenerService],
   exports: [LazyLoadDirective],
 })
